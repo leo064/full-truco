@@ -1,19 +1,4 @@
 import random
-"""
-##Rules:
-- in turn, three cards per player.
-- one "shackle" (manilha)
-
-(?)create a list that "save" the 40 cards of truco.
-create a function that take the cards of each turn.
-
-list.remove --> could be utilize in moment that player play a card in table. For example, the played card go to the first position
-of list, and then, is remove because it was played.
-
-or, I create a list for each player, contained three cards in each list.
-However, I think that this idea is "fail" because him don't give me total control for the cards.
-
-"""
 
 """array of all cards: (matriz)"""
 allcards = []
