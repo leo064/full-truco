@@ -49,18 +49,26 @@ def take_turncards():
     return turn_cards
     
 turn = take_turncards()
-print(turn)
+#print(turn)
 
-#tests
-player1 = []
-player1.append(turn[0])
-player1.append(turn[1])
-player1.append(turn[2])
+"""list (matriz) that gives the cards to respectives players"""
+player_array = []
+first = 0
+last = 3
+for i in range(1, 5):
+    player = []
+    for j in range(first,last):
+        player.append(turn[j])
 
-print(player1)
-player2 = turn[3],turn[4],turn[5]
-player3 = turn[6],turn[7],turn[8]
-player4 = turn[9],turn[10],turn[11]
+    player_array.append(player)
+
+    first = last
+    last+=3
+
+print(player_array[0])
+print(player_array[1])
+print(player_array[2])
+print(player_array[3])
 
 
     
