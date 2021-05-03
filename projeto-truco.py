@@ -1,27 +1,33 @@
 import random
 
-turn_numcards = []
+turn_numcards = [] #<-- global list of nums, no names.
 def take_turncards():
     """function to take the 12 random cards. + side card"""
     turn_cards = []
-    for numcard in range(1, 14):
-        suit = random.randrange(1, 4)
+    numcard = 0
+    while numcard < 13:
+        numcard += 1
+        suit = random.randrange(0, 4)
         number = random.randrange(1, 11)
-        shownum = suit, number
-        turn_numcards.append(shownum)
-        
-        if number == 8: number_name = "Q"
-        elif number == 9: number_name = "J"
-        elif number == 10: number_name = "K"
-        else: number_name = number
-        
-        if suit == 0: suit_name = 'clubs'
-        elif suit == 1: suit_name = 'hearts'
-        elif suit == 2: suit_name = 'spades'
-        else: suit_name = 'diamonds'
-
-        show = suit_name, number_name
-        turn_cards.append(show)
+        shownum = number, suit
+        if shownum in turn_numcards:
+            numcard -= 1
+            continue
+        else:
+            turn_numcards.append(shownum)
+            if number == 8: number_name = "Q"
+            elif number == 9: number_name = "J"
+            elif number == 10: number_name = "K"
+            else: number_name = number
+      
+            if suit == 0: suit_name = 'clubs'
+            elif suit == 1: suit_name = 'hearts'
+            elif suit == 2: suit_name = 'spades'
+            else: suit_name = 'diamonds'
+            
+            show = number_name, suit_name
+            turn_cards.append(show)
+            
     return turn_cards
 
 turn = take_turncards()
@@ -51,10 +57,10 @@ print(player_deck[3])
 side = turn_numcards[12]
 print("side is ...", turn[12])
 
-if side[1]+1 == 8: shackle = "Q"
-elif side[1]+1 == 9: shackle = "J"
-elif side[1]+1 == 10: shackle = "K"
-else: shackle = side[1]+1
+if side[0]+1 == 8: shackle = "Q"
+elif side[0]+1 == 9: shackle = "J"
+elif side[0]+1 == 10: shackle = "K"
+else: shackle = side[0]+1
 print("so... THE SHACKLE IS A: ", shackle)
 
 
